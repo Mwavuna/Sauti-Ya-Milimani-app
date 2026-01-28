@@ -122,7 +122,7 @@ fun MembersPage(modifier: Modifier, navController: NavController, authViewModel:
                             selected = selectedDrawerItemIndex == index,
                             onClick = {
                                 selectedDrawerItemIndex = index
-                                navController.navigate(Screen.Auth.route)
+                                navController.navigate(Screen.Login)
                             },
                             icon = {
                                 Icon(
@@ -177,7 +177,7 @@ fun MembersPage(modifier: Modifier, navController: NavController, authViewModel:
                                     selected = selectedDrawerItemIndex == index,
                                     onClick = {
                                         selectedDrawerItemIndex = index
-                                        navController.navigate(Screen.Auth.route)
+                                        navController.navigate(Screen.Login)
                                     },
                                     icon = {
                                         Icon(

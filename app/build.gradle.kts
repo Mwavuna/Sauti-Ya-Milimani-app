@@ -6,6 +6,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
     alias(libs.plugins.google.gms.google.services)
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.0.20"
 }
 
 android {
@@ -70,6 +71,9 @@ dependencies {
 
     // Jetpack Navigation with Hilt
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    // ✅ Required for @Serializable routes
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
 
     implementation("androidx.compose.foundation:foundation:1.5.0") // For Box, Row, Column, etc.
     implementation("androidx.compose.material:material-icons-core:1.5.0") // Icons if you want material icons
@@ -79,7 +83,7 @@ dependencies {
     implementation ("androidx.room:room-runtime:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
 
-// Kotlin Extensions and Coroutines support for Room
+    // Kotlin Extensions and Coroutines support for Room
     implementation ("androidx.room:room-ktx:2.6.1")
 
     //Lottie
@@ -87,7 +91,10 @@ dependencies {
 
     implementation ("androidx.datastore:datastore-preferences:1.1.1")
 
+    // Preferences DataStore (SharedPreferences like APIs)
+    implementation("androidx.datastore:datastore-preferences:1.2.0")
 
-
+    // Alternatively - without an Android dependency.
+    implementation("androidx.datastore:datastore-preferences-core:1.2.0")
 
 }

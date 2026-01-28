@@ -64,8 +64,8 @@ fun LoginPage(modifier: Modifier =Modifier,navController: NavController,authView
     Box(modifier = Modifier.fillMaxSize()) {
         LaunchedEffect(loginState) {
             if (loginState is Resource.Success && currentUser!=null) {
-                navController.navigate(Screen.Home.route) {
-                    popUpTo(Screen.Auth.route) { inclusive = true }
+                navController.navigate(Screen.Home) {
+                    popUpTo(Screen.Login) { inclusive = true }
                 }
             }
         }
@@ -138,7 +138,7 @@ fun LoginPage(modifier: Modifier =Modifier,navController: NavController,authView
                 Text(text = "Don't have an account?")
                 TextButton(
                     onClick = {
-                        navController.navigate(Screen.SignUp.route)
+                        navController.navigate(Screen.SignUp)
                     },
                 ) {
                     Text("SignUp")

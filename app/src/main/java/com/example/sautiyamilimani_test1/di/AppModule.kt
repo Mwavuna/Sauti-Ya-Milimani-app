@@ -1,6 +1,7 @@
 package com.example.sautiyamilimani_test1.di
 
 import android.content.Context
+import com.example.sautiyamilimani_test1.core.data.datastore.DataStoreRepositoryImpl
 import com.example.sautiyamilimani_test1.data.repository.AuthRepositoryImpl
 import com.example.sautiyamilimani_test1.domain.repository.AuthRepository
 import com.example.sautiyamilimani_test1.domain.repository.DataStoreRepository
@@ -35,7 +36,6 @@ object AuthRepositoryModule{
         return auth
     }
 
-
 /*
  This says:
     “Whenever anyone asks for a FirebaseAuth, give them this one single instance.”
@@ -44,8 +44,6 @@ object AuthRepositoryModule{
 
 
  */
-
-
 
     @Provides
     @Singleton
@@ -86,25 +84,3 @@ object AuthUseCases{
 }
 
 
-
-@Module
-@InstallIn(SingletonComponent::class)
-object DataStoreRepo{
-    @Provides
-    @Singleton
-    fun providesDataStoreRepository(@ApplicationContext context: Context): DataStoreRepository{
-        return DataStoreRepositoryImpl(context)
-    }
-}
-@Module
-@InstallIn(SingletonComponent::class)
-object DataStoreUseCases{
-    @Provides
-    @Singleton
-    fun providesDataStoreUseCases(dataStoreRepository: DataStoreRepository): DataStoreUseCases{
-        return DataStoreUseCases(
-            getFirstTimeStatus = GetFirstTimeStatusUseCase(dataStoreRepository),
-            setFirstTimeStatus = SetFirstTimeStatusUseCase(dataStoreRepository)
-        )
-    }
-}

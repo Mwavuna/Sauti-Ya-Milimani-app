@@ -27,6 +27,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.sautiyamilimani_test1.domain.model.Resource
+import com.example.sautiyamilimani_test1.features.onboarding.presentation.OnboardingScreen
 import com.example.sautiyamilimani_test1.presentation.pages.admins.AttendanceManagement
 import com.example.sautiyamilimani_test1.presentation.pages.admins.CardCreator
 import com.example.sautiyamilimani_test1.presentation.pages.admins.EventsManagement
@@ -109,55 +110,59 @@ fun MyAppNavigation(
                 NavHost(
                     navController = navController,
                     startDestination =
-                        if (currentUser == null) {
-                            Screen.Auth.route
-                        } else if (currentUser?.isAnonymous ?: true) Screen.Member.route
-                        else {
-                            if (isAdmin) {
-                                Screen.Leader.route
-                            } else {
-                                Screen.Member.route
-                            }
-                        },
+                        Screen.Onboarding,
+//                        if (currentUser == null) {
+//                            Screen.Login
+//                        } else if (currentUser?.isAnonymous ?: true) Screen.Member
+//                        else {
+//                            if (isAdmin) {
+//                                Screen.Leader
+//                            } else {
+//                                Screen.Member
+//                            }
+//                        },
                     builder = {
-                        composable(route = Screen.Auth.route) {
+                        composable<Screen.Login> {
                             AuthPage(authViewModel, navController)
                         }
-                        composable(route = Screen.Login.route) {
+                        composable<Screen.Login> {
                             LoginPage(
                                 modifier = modifier,
                                 navController = navController,
                                 authViewModel = authViewModel
                             )
                         }
-                        composable(route = Screen.Home.route) {
+                        composable<Screen. Onboarding> {
+                            OnboardingScreen(modifier, navController, authViewModel)
+                        }
+                        composable<Screen.Home> {
                             HomePage(modifier, navController, authViewModel)
                         }
-                        composable(route = Screen.Member.route) {
+                        composable< Screen.Member> {
                             MembersPage(modifier, navController, authViewModel)
                         }
-                        composable(route = Screen.Leader.route) {
+                        composable<Screen.Leader> {
                             LeadersPage(modifier, navController, membersViewModel, authViewModel)
                         }
-                        composable(route = Screen.MembersManagement.route) {
+                        composable<Screen.MembersManagement> {
                             MemberManagementPage(navController, membersViewModel)
                         }
-                        composable(route = Screen.CardCreator.route) {
-                            CardCreator(navController)
-                        }
-                        composable(route = Screen.Events.route) {
+//                        composable<Screen.CardCreator> {
+//                            CardCreator(navController)
+//                        }
+                        composable< Screen.Events>{
                             EventsManagement(modifier, navController)
                         }
-                        composable(route = Screen.Songs.route) {
+                        composable< Screen.Songs> {
                             SongsManagement(modifier, navController)
                         }
-                        composable(route = Screen.Projects.route) {
+                        composable<Screen.Projects> {
                             ProjectsManagement(modifier, navController)
                         }
-                        composable(route = Screen.Attendance.route) {
+                        composable< Screen.Attendance> {
                             AttendanceManagement(modifier, navController, membersViewModel)
                         }
-                        composable(route = Screen.Minutes.route) {
+                        composable<Screen.Minutes> {
                             AttendanceManagement(modifier, navController, membersViewModel)
                         }
 

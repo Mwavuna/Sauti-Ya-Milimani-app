@@ -1,23 +1,52 @@
 package com.example.sautiyamilimani_test1.presentation.navigation
 
-sealed class Screen (val route:String){
-    object Splash:Screen("splash")
+import com.example.sautiyamilimani_test1.domain.model.Event
+import kotlinx.serialization.Serializable
 
-    object Auth:Screen("Auth")
-    object Login:Screen("login")
-    object SignUp:Screen("signup")
-    object Home:Screen("home")
+sealed class Screen {
+    @Serializable
+    data object Splash:Screen()
 
-    object Member:Screen("memberPage")
+   // @Serializable
+    //data class Auth(val status:AuthStatus):Screen()
 
-    object MembersManagement:Screen("membersManagement")
+    @Serializable
+    object Login:Screen()
 
-    object Leader :Screen("leadersPage")
-    object CardCreator :Screen("cardCreator")
-    object Events:Screen("events")
-    object Minutes :Screen("minutes")
-    object Songs:Screen("songs")
-    object Projects :Screen("projects")
-    object Attendance :Screen("attendance")
+    @Serializable
+    object   Onboarding:Screen()
+
+    @Serializable
+    object SignUp:Screen()
+
+    @Serializable
+    data object Home:Screen()
+
+    @Serializable
+    data object Member:Screen()
+
+    @Serializable
+    data object MembersManagement:Screen()
+
+    @Serializable
+    data object Leader :Screen()
+
+   // @Serializable
+    //data class CardCreator(val event: Event) :Screen()
+
+    @Serializable
+    data object Events:Screen()
+
+    @Serializable
+    data object Minutes :Screen()
+
+    @Serializable
+    data object Songs:Screen()
+
+    @Serializable
+    data object Projects :Screen()
+
+    @Serializable
+    data object Attendance :Screen()
 
 }

@@ -204,7 +204,7 @@ fun LeadersPage(
                                 icon = Icons.Outlined.People,
                                 modifier = Modifier.weight(1f),
                                 onClick = {
-                                    navController.navigate(Screen.MembersManagement.route)
+                                    navController.navigate(Screen.MembersManagement)
                                 }
                             )
 
@@ -215,7 +215,7 @@ fun LeadersPage(
                                 icon = Icons.Outlined.Event,
                                 modifier = Modifier.weight(1f),
                                 onClick = {
-                                    navController.navigate(Screen.Events.route)
+                                    navController.navigate(Screen.Events)
                                 }
                             )
 
@@ -235,7 +235,7 @@ fun LeadersPage(
                                 icon = Icons.Outlined.AttachMoney,
                                 modifier = Modifier.weight(1f),
                                 onClick = {
-                                    navController.navigate(Screen.Projects.route)
+                                    navController.navigate(Screen.Projects)
                                 }
                             )
 
@@ -246,7 +246,7 @@ fun LeadersPage(
                                 icon = Icons.Outlined.MusicNote,
                                 modifier = Modifier.weight(1f),
                                 onClick = {
-                                    navController.navigate(Screen.Songs.route)
+                                    navController.navigate(Screen.Songs)
                                 }
                             )
 
@@ -268,7 +268,7 @@ fun LeadersPage(
                                 icon = Icons.Outlined.TaskAlt,
                                 modifier = Modifier.weight(1f),
                                 onClick = {
-                                    navController.navigate(Screen.Attendance.route)
+                                    navController.navigate(Screen.Attendance)
                                 }
                             )
 
@@ -279,7 +279,7 @@ fun LeadersPage(
                                 icon = Icons.Outlined.NoteAlt,
                                 modifier = Modifier.weight(1f),
                                 onClick = {
-                                    navController.navigate(Screen.Minutes.route)
+                                    navController.navigate(Screen.Minutes)
                                 }
                             )
 

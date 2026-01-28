@@ -39,8 +39,8 @@ fun SignUpPage(modifier: Modifier =Modifier,navController: NavController,authVie
     val scope = rememberCoroutineScope ()
     LaunchedEffect(signUpState) {
         if(signUpState is Resource.Success){
-            navController.navigate(Screen.Home.route){
-                popUpTo(Screen.Auth.route) {  inclusive=true}
+            navController.navigate(Screen.Home){
+                popUpTo(Screen.SignUp) {  inclusive=true}
             }
         }
     }
@@ -92,7 +92,7 @@ fun SignUpPage(modifier: Modifier =Modifier,navController: NavController,authVie
             Text(text="Already have an account?")
             TextButton(
                 onClick = {
-                    navController.navigate(Screen.Auth.route)
+                    navController.navigate(Screen.Login)
                 },
             ){
                 Text("Login")
